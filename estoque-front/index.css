@@ -10,6 +10,164 @@ body {
     color:#F2F2F2 ;
 }
 
+/* NAVBAR BASE */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: #1e88e5;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  z-index: 1000;
+  font-family: Arial, sans-serif;
+}
+
+.nav-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  height: 60px;
+  justify-content: space-between;
+}
+
+/* LOGO */
+.nav-logo img {
+  width: 100px;  
+  height: 100px;
+  cursor: pointer;
+}
+
+/* MENU LISTA */
+.nav-menu {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+/* LINKS */
+.nav-link {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+  cursor: pointer;
+}
+
+.nav-link:hover,
+.nav-link:focus {
+  color: #ffd54f;
+  outline: none;
+}
+
+/* BOTÃO CTA */
+.btn-nav {
+  background: white;
+  color: #1e88e5;
+  padding: 8px 18px;
+  border-radius: 25px;
+  font-weight: 700;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-nav:hover,
+.btn-nav:focus {
+  background: #1565c0;
+  color: white;
+  outline: none;
+}
+
+/* BOTÃO HAMBURGUER - MOBILE */
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  position: relative;
+  z-index: 1100;
+}
+
+.hamburger,
+.hamburger::before,
+.hamburger::after {
+  display: block;
+  background-color: white;
+  height: 3px;
+  width: 25px;
+  border-radius: 2px;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.hamburger::before,
+.hamburger::after {
+  content: "";
+  position: absolute;
+  left: 0;
+}
+
+.hamburger::before {
+  top: -8px;
+}
+
+.hamburger::after {
+  top: 8px;
+}
+
+/* MENU RESPONSIVO */
+@media (max-width: 768px) {
+  .nav-toggle {
+    display: block;
+  }
+
+  .nav-menu {
+    position: fixed;
+    top: 60px;
+    right: -100%;
+    width: 220px;
+    height: calc(100% - 60px);
+    background: #1e88e5;
+    flex-direction: column;
+    padding: 30px 20px;
+    gap: 20px;
+    transition: right 0.3s ease;
+  }
+
+  .nav-menu.active {
+    right: 0;
+  }
+
+  .nav-link {
+    font-size: 18px;
+  }
+
+  .btn-nav {
+    padding: 10px 0;
+    text-align: center;
+    border-radius: 5px;
+  }
+}
+
+/* ANIMAÇÃO DO BOTÃO HAMBURGUER QUANDO ATIVO */
+.nav-toggle.active .hamburger {
+  background-color: transparent;
+}
+
+.nav-toggle.active .hamburger::before {
+  transform: rotate(45deg);
+  top: 0;
+}
+
+.nav-toggle.active .hamburger::after {
+  transform: rotate(-45deg);
+  top: 0;
+}
+
+
 /* HERO */
 
 

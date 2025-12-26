@@ -2,9 +2,47 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Hello World.</title>
+    <title>SmartStock</title>
 </head>
 <body>
+    <header>
+    <h1>Sistema de Estoque com Atendimento por IA</h1>
+    <p>Automatização do primeiro contato com clientes</p>
+</header>
 
+<main>
+
+    <!-- Cadastro de Produtos -->
+    <section>
+        <h2>Cadastro de Produtos</h2>
+
+        <input type="text" id="nomeProduto" placeholder="Nome do produto">
+        <input type="number" id="quantidadeProduto" placeholder="Quantidade">
+        <input type="number" id="precoProduto" placeholder="Preço">
+
+        <button onclick="adicionarProduto()">Adicionar Produto</button>
+
+        <h3>Estoque</h3>
+        <ul id="listaProdutos"></ul>
+    </section>
+
+    <!-- Chat com IA -->
+    <section>
+        <h2>Atendimento Automático (IA)</h2>
+
+        <div class="chat-box" id="chatBox"></div>
+
+        <input type="text" id="mensagemCliente" placeholder="Digite a mensagem do cliente">
+        <button onclick="enviarMensagem()">Enviar</button>
+    </section>
+
+</main>
+
+<footer>
+    <p>Protótipo de Sistema de Estoque + IA © 2025</p>
+</footer>
+
+<!-- JS externo -->
+<script src="script.js"></script>
 </body>
 </html>

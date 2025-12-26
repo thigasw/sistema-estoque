@@ -1,0 +1,13 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="estoque-backend" type="Application" factoryName="Application">
+    <envs>
+      <env name="POSTGRES_PASSWORD" value="D0lm.9:T86" />
+      <env name="POSTGRES_USER" value="postgres" />
+    </envs>
+    <option name="MAIN_CLASS_NAME" value="com.moraes_dev.sistema_estoque.SistemaEstoqueApplication" />
+    <module name="sistema-estoque" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>

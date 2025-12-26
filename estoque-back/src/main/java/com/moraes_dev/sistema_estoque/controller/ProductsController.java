@@ -30,9 +30,14 @@ public class ProductsController {
         return productsService.createProduct(produto);
     }
 
-    @DeleteMapping("/produtos/{id}")
+    @PutMapping("/produtos/{id}")
     public ResponseEntity<?> updateProduct(@PathVariable long id, @RequestBody ProductsEntity product){
         return productsService.updateProduct(id, product);
+    }
+
+    @DeleteMapping("/produtos/{di}")
+    public ResponseEntity<?> deleteProduct(@PathVariable long id){
+        return productsService.deleteProduct(id);
     }
 
 }

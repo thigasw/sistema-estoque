@@ -105,4 +105,22 @@ public class ProductsService {
             return ResponseEntity.internalServerError().body("Erro interno ao realizar a atualização das informações do produto " + product.getName() + " na base de dados.");
         }
     }
+
+    @Transactional
+    public ResponseEntity<?> deleteProduct(long id){
+        log.info("Apagando o produto {}", id);
+        try {
+            if (productsRepository.findById(id).isPresent()) {
+                productsRepository.deleteById(id);
+                log.info("Produto {} apagado com sucesso da base de dados.", id);
+                return ResponseEntity.ok("Produto " + id + " apagado com sucesso da base de dados.");
+            } else {
+                log.info("Nenhum produto cadastrado com o ID informado.");
+                return ResponseEntity.notFound().build();
+            }
+        } catch (RuntimeException e) {
+            log.error("Erro interno ao tentar apagar o produto {}", id, e);
+            return ResponseEntity.internalServerError().body("Erro interno ao tentar apagar o produto " + id);
+        }
+    }
 }

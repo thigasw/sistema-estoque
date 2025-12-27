@@ -8,17 +8,16 @@ body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
     color:#F2F2F2 ;
+    font-family: "Archivo", sans-serif;
 }
-
 /* NAVBAR BASE */
 .navbar {
   position: fixed;
   top: 0;
   width: 100%;
   background: #1e88e5;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
   z-index: 1000;
-  font-family: Arial, sans-serif;
+  font-family: "Work Sans", sans-serif;
 }
 
 .nav-container {
@@ -59,7 +58,7 @@ body {
 
 .nav-link:hover,
 .nav-link:focus {
-  color: #ffd54f;
+  color: #8EBF45;
   outline: none;
 }
 

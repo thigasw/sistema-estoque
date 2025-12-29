@@ -11,10 +11,11 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.BufferedReader;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
+import java.io.Reader;
 import java.util.List;
+import com.opencsv.CSVReader;
+import com.opencsv.CSVReaderBuilder;
 
 @Service
 @AllArgsConstructor
@@ -36,26 +37,24 @@ public class ProductsService {
     @Transactional
     public ResponseEntity<?> createProductsByCsv(MultipartFile productsCsv){
         log.info("Realizando o cadastro dos produtos enviados via CSV.");
-        try {
-            BufferedReader reader = new BufferedReader(new InputStreamReader(productsCsv.getInputStream()));
-            List<String> lines = reader.lines().toList();
-            reader.close();
-            List<String> mutableLines = new ArrayList<>(lines);
-            mutableLines.removeFirst();
+        try (Reader reader = new InputStreamReader(productsCsv.getInputStream())) {
+            CSVReader csvReader = new CSVReaderBuilder(reader)
+                    .withSkipLines(1) // Pula o cabeçalho
+                    .build();
 
-            for (String line : mutableLines){
-                List<String> valores = List.of(line.split(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)"));
+            List<String[]> rows = csvReader.readAll();
 
-                if (productsRepository.findByBarCode(String.valueOf(valores.get(12))) != null) {
-                    log.info("Produto já cadastrado na base de dados com o código de barras {}", valores.get(12));
+            for (String[] row : rows){
+                if (productsRepository.findByBarCode(row[12]) != null) {
+                    log.info("Produto já cadastrado na base de dados com o código de barras {}", row[12]);
                     continue;
                 }
 
-                ProductsCsvDTO currentProduct = new ProductsCsvDTO(valores.get(0),
-                        valores.get(1), valores.get(2), valores.get(3),
-                        valores.get(4), valores.get(5), valores.get(6),
-                        valores.get(7), valores.get(8), valores.get(9),
-                        valores.get(10), valores.get(11), valores.get(12));
+                ProductsCsvDTO currentProduct = new ProductsCsvDTO(row[0],
+                        row[1], row[2], row[3],
+                        row[4], row[5], row[6],
+                        row[7], row[8], row[9],
+                        row[10], row[11], row[12]);
                 ProductsEntity produtoAtual = new ProductsEntity(currentProduct);
                 productsRepository.save(produtoAtual);
                 log.info("Produto {} cadastrado com sucesso na base de dados.", produtoAtual.getName());

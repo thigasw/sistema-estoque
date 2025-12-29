@@ -89,6 +89,7 @@ function renderizarTabela(listaProdutos) {
     tabelaBody.innerHTML = ''; // Limpa a tabela atual
 
     listaProdutos.forEach(produto => {
+        console.log(produto);
         const tr = document.createElement('tr');
         
         tr.innerHTML = `

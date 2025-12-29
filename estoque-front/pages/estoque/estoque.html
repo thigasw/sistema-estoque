@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="importmap">
+        {
+            "imports": {
+                "axios": "https://cdn.jsdelivr.net/npm/axios@1.7.2/+esm"
+            }
+        }
+    </script>
+    <style>
+        /* Estilos básicos para visualização */
+        .toolbar { margin-bottom: 20px; }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #f2f2f2; }
+    </style>
+</head>
+<body>
+
+    <h1>Gerenciamento de Estoque</h1>
+
+    <div class="toolbar">
+        <!-- Botão para cadastrar novo produto -->
+        <button id="btn-novo-produto">Novo Produto</button>
+
+        <!-- Botão e Input para Upload CSV -->
+        <input type="file" id="input-csv" accept=".csv" style="display: none;">
+        <button id="btn-upload-csv">Importar CSV</button>
+    </div>
+
+    <table id="tabela-produtos">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Marca</th>
+                <th>Categoria</th>
+                <th>Qtd</th>
+                <th>Preço</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Linhas serão inseridas via JS -->
+        </tbody>
+    </table>
+
+    <script type="module" src="estoque.js"></script>
+</body>
+</html>

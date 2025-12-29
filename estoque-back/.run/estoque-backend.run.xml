@@ -3,10 +3,12 @@
     <envs>
       <env name="POSTGRES_PASSWORD" value="D0lm.9:T86" />
       <env name="POSTGRES_USER" value="postgres" />
+      <env name="ESTOQUE_BACK_USER" value="Estoqu3" />
+      <env name="ESTOQUE_BACK_PASSWORD" value="PJ0ztL3rdtRMb]-" />
     </envs>
     <option name="MAIN_CLASS_NAME" value="com.moraes_dev.sistema_estoque.SistemaEstoqueApplication" />
     <module name="sistema-estoque" />
-    <option name="WORKING_DIRECTORY" value="/home/matheus-moraes/Documents/GitHub/sistema-estoque/estoque-back/" />
+    <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/" />
     <method v="2">
       <option name="Make" enabled="true" />
     </method>

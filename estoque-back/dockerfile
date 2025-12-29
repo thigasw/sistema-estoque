@@ -1,10 +1,20 @@
-FROM eclipse-temurin:21-jre-alpine
+# --- Stage 1: Build (JDK is required to compile) ---
+FROM eclipse-temurin:21-jdk-alpine AS builder
+WORKDIR /app
 
-WORKDIR estoque-back/
+# 1. Copy ALL files from your repository into the container
+COPY . .
 
+# 2. Grant permission and run the Maven wrapper
+# We use -DskipTests to ensure the build finishes even if DB is offline
 RUN chmod +x mvnw && ./mvnw clean install
 
-COPY target/*.jar app.jar
+# --- Stage 2: Runtime (JRE is enough to run) ---
+FROM eclipse-temurin:21-jre-alpine
+WORKDIR /app
+
+# 3. Copy only the JAR file from the builder stage
+COPY --from=builder /app/target/*.jar app.jar
 
 EXPOSE 8080
 

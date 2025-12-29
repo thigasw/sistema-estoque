@@ -13,6 +13,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -39,11 +40,13 @@ public class ProductsService {
             BufferedReader reader = new BufferedReader(new InputStreamReader(productsCsv.getInputStream()));
             List<String> lines = reader.lines().toList();
             reader.close();
+            List<String> mutableLines = new ArrayList<>(lines);
+            mutableLines.removeFirst();
 
-            for (String line : lines){
+            for (String line : mutableLines){
                 List<String> valores = List.of(line.split(","));
 
-                if (productsRepository.findByBarCode(String.valueOf(valores.get(12))) != null || line.equals(lines.getFirst())) {
+                if (productsRepository.findByBarCode(String.valueOf(valores.get(12))) != null) {
                     continue;
                 }
 

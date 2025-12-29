@@ -11,11 +11,12 @@ import org.springframework.web.multipart.MultipartFile;
 @RestController
 @RequestMapping("/estoque")
 @AllArgsConstructor
+@CrossOrigin(origins = "*")
 public class ProductsController {
 
     ProductsService productsService;
 
-    @GetMapping
+    @GetMapping({"", "/"})
     public ResponseEntity<?> getAllProducts(){
         return productsService.getAllProducts();
     }

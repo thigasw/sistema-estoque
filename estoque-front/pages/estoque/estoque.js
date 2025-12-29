@@ -36,7 +36,7 @@ async function buscarEstoque() {
 
 async function apagarProduto(id){
     try {
-        const response = await  axios.delete(`/produtos/${id}`);
+        const response = await axios.delete(apiUrl + `/produtos/${id}`);
         console.log("Produto apagado com sucesso: " + id);
         return response.data;
     } catch (error) {

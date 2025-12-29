@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const apiUrl = "https://iatend-estoque-api-back.j7h6yg.easypanel.host/estoque/";
+const apiUrl = "https://iatend-estoque-api-back.j7h6yg.easypanel.host/estoque";
 
 // Definimos uma Classe para servir de modelo (padrão)
 class Produto {
@@ -36,7 +36,7 @@ async function buscarEstoque() {
 
 async function apagarProduto(id){
     try {
-        const response = await  axios.delete(`produtos/${id}`);
+        const response = await  axios.delete(`/produtos/${id}`);
         console.log("Produto apagado com sucesso: " + id);
         return response.data;
     } catch (error) {
@@ -47,7 +47,7 @@ async function apagarProduto(id){
 async function cadastrarProduto(produto){
     try {
         const {id, ...dadosProduto} = produto;
-        const response = await axios.post(apiUrl + 'produtos', dadosProduto);
+        const response = await axios.post(apiUrl + '/produtos', dadosProduto);
         console.log("Produto cadastrado com sucesso: " + produto.name);
         return new Produto(response.data);
     } catch (error) {
@@ -57,7 +57,7 @@ async function cadastrarProduto(produto){
 
 async function atualizarProduto(id,produto) {
     try {
-        const response = await axios.put(apiUrl + `produtos/${id}`, produto);
+        const response = await axios.put(apiUrl + `/produtos/${id}`, produto);
         console.log("Produto atualizado com sucesso: " + produto.name);
     } catch (error){
         console.log("Erro ao atualizar o produto: " + produto.name, error);
@@ -69,7 +69,7 @@ async function cadastrarProdutosCsv(file) {
         const formData = new FormData();
         formData.append("file", file);
 
-        const response = await axios.post(apiUrl + "produtos/csv", formData);
+        const response = await axios.post(apiUrl + "/produtos/csv", formData);
         console.log("Produtos cadastrados com sucesso.");
         return response.data;
     } catch (error) {

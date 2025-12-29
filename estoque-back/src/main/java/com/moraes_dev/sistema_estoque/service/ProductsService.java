@@ -47,6 +47,7 @@ public class ProductsService {
                 List<String> valores = List.of(line.split(","));
 
                 if (productsRepository.findByBarCode(String.valueOf(valores.get(12))) != null) {
+                    log.info("Produto já cadastrado na base de dados com o código de barras {}", valores.get(12));
                     continue;
                 }
 

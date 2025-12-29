@@ -96,8 +96,16 @@ function renderizarTabela(listaProdutos) {
             <td>${produto.name}</td>
             <td>${produto.brand}</td>
             <td>${produto.category}</td>
+            <td>${produto.subcategory}</td>
+            <td>${produto.colorTone}</td>
             <td>${produto.amount}</td>
             <td>R$ ${produto.price}</td>
+            <td>${produto.utility}</td>
+            <td>${produto.skinType}</td>
+            <td>${produto.finish}</td>
+            <td>${produto.relatedProducts}</td>
+            <td>${produto.imageUrl}</td>
+            <td>${produto.barCode}</td>
         `;
         
         tabelaBody.appendChild(tr);

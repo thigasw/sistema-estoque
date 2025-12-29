@@ -38,13 +38,12 @@ public class ProductsService {
         try {
             BufferedReader reader = new BufferedReader(new InputStreamReader(productsCsv.getInputStream()));
             List<String> lines = reader.lines().toList();
-            lines.removeFirst();
             reader.close();
 
             for (String line : lines){
                 List<String> valores = List.of(line.split(","));
 
-                if (productsRepository.findByBarCode(String.valueOf(valores.get(12))) != null) {
+                if (productsRepository.findByBarCode(String.valueOf(valores.get(12))) != null || line.equals(lines.getFirst())) {
                     continue;
                 }
 

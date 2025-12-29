@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const apiUrl = "http://localhost:8080/estoque/";
+const apiUrl = "https://iatend-estoque-api-back.j7h6yg.easypanel.host/estoque/";
 
 // Definimos uma Classe para servir de modelo (padrão)
 class Produto {

@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const apiUrl = "http://72.60.243.9:8080/estoque/";
+const apiUrl = "http://localhost:8080/estoque/";
 
 // Definimos uma Classe para servir de modelo (padrão)
 class Produto {

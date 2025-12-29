@@ -16,30 +16,37 @@ import java.util.Arrays;
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
+
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         return http
-                .cors(cors -> {})
+                .cors(cors -> cors.configurationSource(corsConfigurationSource())) // Link explicitly
                 .csrf(AbstractHttpConfigurer::disable)
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(authorize -> authorize
                         .anyRequest().permitAll())
                 .build();
-
     }
 
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
 
-        configuration.setAllowedOrigins(Arrays.asList("http://72.60.243.9:*", "https://iatend-estoque-api-front.j7h6yg.easypanel.host/*")); // ou "*"
+        // CORRECTED: Remove the "/*" and ":*" wildcards. Use exact strings.
+        configuration.setAllowedOrigins(Arrays.asList(
+                "https://iatend-estoque-api-front.j7h6yg.easypanel.host",
+                "http://72.60.243.9",
+                "http://72.60.243.9:8080",
+                "http://localhost:5500"
+        ));
+
         configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
-        configuration.setAllowedHeaders(Arrays.asList("*"));
+        configuration.setAllowedHeaders(Arrays.asList("Authorization", "Content-Type", "X-Requested-With", "Accept"));
         configuration.setAllowCredentials(true);
+        configuration.setMaxAge(3600L); // Cache preflight response for 1 hour
 
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", configuration);
-
         return source;
     }
 }

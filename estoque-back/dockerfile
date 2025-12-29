@@ -2,7 +2,7 @@ FROM eclipse-temurin:21-jre-alpine
 
 WORKDIR estoque-back/
 
-RUN mnv clean install
+RUN mvn clean install
 
 COPY target/*.jar app.jar
 

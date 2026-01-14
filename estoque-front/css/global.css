@@ -1,0 +1,39 @@
+:root{
+
+    --background-primary-color:#75A644;
+    --background-secondary-color: #0DF205;
+    --background-tertiary-color: #0D0D0D;
+
+    --text-primary-color:#7AB347;
+    --text-secondary-color:#1F417C;
+}
+
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: var(--background-primary-color) ;
+  margin: 0;
+  height: 100vh;
+  background: linear-gradient(-30deg, #75A644 , #154114, #0D0D0D, #070208);
+  background-size: 400% 400%;
+  animation: gradientBG 12s ease infinite;
+  color: var(--text-primary-color);
+}
+
+@keyframes gradientBG {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}

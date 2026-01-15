@@ -1,0 +1,136 @@
+:root {
+  --background-primary-color: #75a644;
+  --background-secondary-color: #0df205;
+  --background-tertiary-color: #011a03;
+
+  --text-primary-color: #7ab347;
+  --text-secondary-color: #2694bf;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+   background-color: var(--background-primary-color);
+  background: linear-gradient(-30deg, #75a644, #154114, #0d0d0d, #070208);
+  background-size: 400% 400%;
+  animation: gradientBG 12s ease infinite;
+  color: var(--text-primary-color);
+}
+
+@keyframes gradientBG {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 100px;
+}
+
+img{
+    width: 100px;
+    height: 100px;
+}
+ 
+h1{
+     font-family: "Montserrat", sans-serif;
+ font-weight: bold;
+ text-align: center;
+ font-size: 80px;
+}
+
+span{
+    color: var(--text-secondary-color);
+    font-weight: bold;
+}
+
+form{
+ text-align: center;
+  padding: 20px;
+  margin-bottom: 80px;
+}
+
+label {
+  margin: 10px;
+  text-align: center;
+  font-family: "Lato", sans-serif;
+  font-weight: bold;
+  display: inline-block;
+  margin-bottom: 5px;
+}
+
+input {
+    border-radius: 10px;
+  width: 100%;
+  padding: 10px;
+  border: 2px solid var(--text-secondary-color);
+}
+
+input[type="password"]{
+    margin-bottom: 10px;
+}
+
+input:invalid{
+  border-color: red;
+}
+input:valid {
+  border-color: green;
+}
+
+small{
+    font-family: "Lato", sans-serif;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+a{
+    text-decoration: none;
+    font-family: "Lato", sans-serif;
+    color:var(--text-primary-color) ;
+}
+button {
+margin: 20px;
+  font-family: "Lato", sans-serif;
+  font-weight: bold;
+  background-color: var(--background-tertiary-color);
+  color: var(--text-primary-color);
+  width: 200px;
+  height: 50px;
+  border: 0px;
+  border-radius: 10px;
+  transition: 0.4s ease-in;
+  z-index: 1;
+}
+button:hover {
+  background-color: var(--background-secondary-color);
+  color: var(--text-secondary-color);
+  box-shadow: 0 0 5px var(--background-tertiary-color),
+}
+.error-message {
+  text-align: center;
+  margin-top: 15px;
+  color: #ff6b6b;
+  font-weight: bold;
+  height: 20px;
+}

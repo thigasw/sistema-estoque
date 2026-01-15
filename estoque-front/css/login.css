@@ -46,6 +46,15 @@ main {
     justify-content: center;
     align-items: center;
     margin: 100px;
+     opacity: 0;
+    transform: translateY(20px);
+    transition: 0.8s ease;
+}
+
+
+.login-container.show {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 img{
@@ -86,6 +95,11 @@ input {
   padding: 10px;
   border: 2px solid var(--text-secondary-color);
 }
+input:focus {
+    outline: none;
+    box-shadow: 0 0 12px rgba(145, 70, 255, 0.7);
+    transition: 0.3s;
+}
 
 input[type="password"]{
     margin-bottom: 10px;
@@ -125,7 +139,8 @@ margin: 20px;
 button:hover {
   background-color: var(--background-secondary-color);
   color: var(--text-secondary-color);
-  box-shadow: 0 0 5px var(--background-tertiary-color),
+  box-shadow: 0 0 5px var(--background-tertiary-color);
+  transform: scale(1.05);
 }
 .error-message {
   text-align: center;
@@ -133,4 +148,16 @@ button:hover {
   color: #ff6b6b;
   font-weight: bold;
   height: 20px;
+}
+
+.shake {
+    animation: shake 0.3s ease;
+}
+
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+    100% { transform: translateX(0); }
 }

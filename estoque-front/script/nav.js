@@ -3,3 +3,7 @@ document.getElementById('open_btn').addEventListener('click', function () {
 });
 
 
+document.getElementById("logout_btn").addEventListener("click", function () {
+    // Redireciona para a página de login
+    window.location.href = "login.html";
+});

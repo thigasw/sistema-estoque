@@ -1,3 +1,8 @@
+
+
+
+
+
 import axios from 'axios';
 
 const apiUrl = "https://iatend-estoque-api-back.j7h6yg.easypanel.host/estoque";
@@ -137,3 +142,4 @@ inputCsv.addEventListener('change', async (event) => {
 
 // Inicia a aplicação
 init();
+

@@ -1,60 +1,132 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <script type="importmap">
-        {
-            "imports": {
-                "axios": "https://cdn.jsdelivr.net/npm/axios@1.7.2/+esm"
-            }
-        }
-    </script>
-    <style>
-        /* Estilos básicos para visualização */
-        .toolbar { margin-bottom: 20px; }
-        table { width: 100%; border-collapse: collapse; }
-        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
-        th { background-color: #f2f2f2; }
-    </style>
-</head>
-<body>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/estoque.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>Estoque</title>
+  </head>
+  <body>
+    <header>
+      <nav id="sidebar">
+        <div id="sidebar_content">
+              <div id="user">
+          <img
+            src="img/266134.png"
+            alt="Avatar"
+            id="user_avatar"
+          />
+          <p id="user_infos">
+            <span class="item-descripiton"> Fulano de tal </span>
+            <span class="item-descripiton"> Lorem ipsum </span>
+          </p>
+        </div>
+        <ul id="side_itens">
+          <li class="side-item">
+            <a href=""
+              ><i class="fa-regular fa-chart-pie"></i>
+              <span class="item-descripiton"> Dashboard </span></a
+            >
+          </li>
+            <li class="side-item">
+            <a href=""
+              ><i class="fa-regular fa-user"></i>
+              <span class="item-descripiton"> Clientes</span></a
+            >
+          </li>
+             <li class="side-item active" >
+            <a href=""
+              ><i class="fa-solid fa-cubes"></i>
+              <span class="item-descripiton"> Estoque</span></a
+            >
+          </li>
+           <li class="side-item">
+            <a href=""
+              ><i class="fa-solid fa-coins"></i>
+              <span class="item-descripiton"> Financeiro</span></a
+            >
+          </li>
+           <li class="side-item">
+            <a href=""
+              ><i class="fa-solid fa-note-sticky"></i>
+              <span class="item-descripiton"> Nota Fiscal</span></a
+            >
+          </li>
+          <li class="side-item">
+            <a href=""
+              ><i class="fa-solid fa-gear"></i>
+              <span class="item-descripiton"> Configurações</span></a
+            >
+          </li>
 
-    <h1>Gerenciamento de Estoque de Makes</h1>
+        </ul>
 
-    <div class="toolbar">
+        <button id="open_btn">
+            <i id="open_btn_icon" class="fa-solid fa-chevron-right"></i>
+        </button>
+        </div>
+      
+
+        <div id="logout">
+            <button id="logout_btn">
+                <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                <span class="item-descripiton">Logout</span>
+            </button>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <h1>Gerenciamento de Estoque de Makes</h1>
+
+      <div class="toolbar">
         <!-- Botão para cadastrar novo produto -->
         <button id="btn-novo-produto">Novo Produto</button>
 
         <!-- Botão e Input para Upload CSV -->
-        <input type="file" id="input-csv" accept=".csv" style="display: none;">
+        <input type="file" id="input-csv" accept=".csv" style="display: none" />
         <button id="btn-upload-csv">Importar CSV</button>
-    </div>
+      </div>
 
-    <table id="tabela-produtos">
+      <table id="tabela-produtos">
         <thead>
-            <tr>
-                <th>ID</th>
-                <th>Nome</th>
-                <th>Marca</th>
-                <th>Categoria</th>
-                <th>Subcategoria</th>
-                <th>Tom/Cor</th>
-                <th>Qtd</th>
-                <th>Preço</th>
-                <th>Utilidade</th>
-                <th>Tipo de Pele</th>
-                <th>Acabamento</th>
-                <th>Relacionados</th>
-                <th>Imagem</th>
-                <th>Cód. Barras</th>
-            </tr>
+          <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Marca</th>
+            <th>Categoria</th>
+            <th>Subcategoria</th>
+            <th>Tom/Cor</th>
+            <th>Qtd</th>
+            <th>Preço</th>
+            <th>Utilidade</th>
+            <th>Tipo de Pele</th>
+            <th>Acabamento</th>
+            <th>Relacionados</th>
+            <th>Imagem</th>
+            <th>Cód. Barras</th>
+          </tr>
         </thead>
         <tbody>
-            <!-- Linhas serão inseridas via JS -->
+          <!-- Linhas serão inseridas via JS -->
         </tbody>
-    </table>
+      </table>
+    </main>
 
-    <script type="module" src="estoque.js?v=2"></script>
-</body>
+    <script type="importmap">
+      {
+        "imports": {
+          "axios": "https://cdn.jsdelivr.net/npm/axios@1.7.2/+esm"
+        }
+      }
+    </script>
+    <script type="module" src="estoque.js"></script>
+    <script src="script/nav.js"></script>
+  </body>
 </html>
